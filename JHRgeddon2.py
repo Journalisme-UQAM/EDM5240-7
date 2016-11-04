@@ -60,7 +60,8 @@ for ligne in page1.find_all("li"):
 
                 # Ici, c'est moi qui t'ai induit en erreur
                 # Cette vérification doit se faire à la toute fin
-                if "concours" in item.td.text:
+                # dans le dernier élément de la liste contrat
+                if "concours" in contrat[-1]:
                     contrat.append("Oui")
                     concours += 1 # L'augmentation de la variable «concours» n'était pas au bon endroit :)
                 else:   
@@ -75,5 +76,8 @@ for ligne in page1.find_all("li"):
                 projet = csv.writer(fin)
                 projet.writerow(contrat)
 
+                # Il resterait une chose à corriger: chaque ligne du CSV ne compte pas le même nombre de colonnes
+                # Cela est dû au fait que toutes les pages des contrats individuels ne comptent pas le même nombre de lignes
+                # Mais cela peut se corriger manuellement par la suite à l'aide d'un tableur
 
             i += 1
