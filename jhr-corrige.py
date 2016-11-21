@@ -57,4 +57,8 @@ for ligne in page.find_all("tr"):
         projet = csv.writer(fin)
         projet.writerow(contrat)
         
-    i =+ 1
+# Dans un des scripts que je vous ai envoyés, j'ai fait une erreur.
+# Quand on écrit « =+1 », on dit «la variable est égale à (plus) 1».
+# C'est « +=1 » qu'il faut écrire pour augmenter de 1 la valeur d'une variable dans une boucle.
+    # i =+ 1
+    i += 1
